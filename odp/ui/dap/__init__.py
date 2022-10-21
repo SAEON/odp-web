@@ -22,9 +22,6 @@ def create_app():
         CLIENT_ID=config.ODP.UI.DAP.CLIENT_ID,
         CLIENT_SECRET=config.ODP.UI.DAP.CLIENT_SECRET,
         CLIENT_SCOPE=[HydraScope.OPENID, HydraScope.OFFLINE_ACCESS],
-        SYSTEM_CLIENT_ID=config.ODP.CLI.PUBLIC.CLIENT_ID,
-        SYSTEM_CLIENT_SECRET=config.ODP.CLI.PUBLIC.CLIENT_SECRET,
-        SYSTEM_CLIENT_SCOPE=[],
         API_URL=config.ODP.UI.API_URL,
     )
 
