@@ -1,6 +1,6 @@
 from wtforms import StringField
 
-from odp.ui.forms import BaseForm
+from odp.ui.base.forms import BaseForm
 
 
 class SearchForm(BaseForm):
