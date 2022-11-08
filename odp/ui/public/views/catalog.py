@@ -8,7 +8,7 @@ bp = Blueprint('catalog', __name__)
 
 
 @bp.route('/')
-@api.client(ODPScope.CATALOG_READ)
+@api.view(ODPScope.CATALOG_READ)
 def index():
     page = request.args.get('page', 1)
     text_q = request.args.get('q')
@@ -29,7 +29,7 @@ def index():
 
 
 @bp.route('/<path:id>')
-@api.client(ODPScope.CATALOG_READ)
+@api.view(ODPScope.CATALOG_READ)
 def view(id):
     record = api.get(f'/catalog/SAEON/records/{id}')
     return render_template(

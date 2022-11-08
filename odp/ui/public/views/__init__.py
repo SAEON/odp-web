@@ -1,8 +1,8 @@
 from flask import Flask
 
-from odp.ui.public.views import catalog, home
-
 
 def init_app(app: Flask):
+    from . import catalog, home
+
     app.register_blueprint(home.bp)
     app.register_blueprint(catalog.bp, url_prefix='/catalog')
