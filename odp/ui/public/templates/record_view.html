@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% from 'macros.html' import render_info %}
 
-{% set metadata = (record.metadata | selectattr('schema_id', '==', 'SAEON.DataCite.4') | first).metadata %}
+{% set metadata = (record.metadata | selectattr('schema_id', '==', 'SAEON.DataCite4') | first).metadata %}
 {% set iso19115_metadata = record.metadata | selectattr('schema_id', '==', 'SAEON.ISO19115') | list %}
 {% if iso19115_metadata %}
     {% set iso19115_metadata = (iso19115_metadata | first).metadata %}

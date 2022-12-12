@@ -27,7 +27,7 @@
     {% call(record) render_table(records, 'Identifier', 'Title', 'Collection', hide_id=True, filter_=filter_) %}
         <th scope="row">{{ obj_link('catalog', record.doi or record.id) }}</th>
         <td>
-            {% set metadata = (record.metadata | selectattr('schema_id', '==', 'SAEON.DataCite.4') | first).metadata %}
+            {% set metadata = (record.metadata | selectattr('schema_id', '==', 'SAEON.DataCite4') | first).metadata %}
             {{ metadata.titles[0].title }}
         </td>
         <td>{{ record.collection_id }}</td>
