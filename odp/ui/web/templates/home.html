@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <main class="d-flex flex-grow-1 align-items-center justify-content-evenly">
+        <div class="card w-50">
+            <div class="card-body">
+                <form action="{{ url_for('catalog.index') }}" method="get">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                {{ search_form.q(class='form-control font-monospace') }}
+                            </div>
+                            <div class="col-1">
+                                <button type="submit" class="btn btn-outline-primary">
+                                    &#128270;
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock %}

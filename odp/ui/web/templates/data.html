@@ -1,11 +1,7 @@
 {% extends 'base.html' %}
 
 {% block heading %}
-    {% if current_user.is_authenticated %}
-        SAEON Data Servers
-    {% else %}
-        Welcome to the SAEON Data Access Portal!
-    {% endif %}
+    SAEON Data Servers
 {% endblock %}
 
 {% block content %}
@@ -25,6 +21,6 @@
             </div>
         </div>
     {% else %}
-        <p>Please <a href="{{ url_for('hydra.login') }}">log in</a> to continue.</p>
+        <p>Please <a href="{{ url_for('hydra.login') }}">log in</a> to access SAEON's data servers.</p>
     {% endif %}
 {% endblock %}
