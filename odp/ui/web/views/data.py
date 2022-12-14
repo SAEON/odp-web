@@ -1,4 +1,4 @@
-from flask import Blueprint, abort, render_template
+from flask import Blueprint, abort, flash, redirect, render_template, url_for
 from flask_login import current_user
 
 from odp.config import config
@@ -23,3 +23,9 @@ def check_session():
         'subject': current_user.id,
         'extra': {},
     }
+
+
+@bp.route('/error')
+def unauthorized_error():
+    flash('Please log in to access that page.', category='warning')
+    return redirect(url_for('.index'))
