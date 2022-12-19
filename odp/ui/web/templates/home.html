@@ -1,23 +1,13 @@
 {% extends 'base.html' %}
+{% from 'macros.html' import render_catalog_search_form %}
 
 {% block main %}
     <main class="d-flex flex-grow-1 align-items-center justify-content-evenly">
         <div class="card w-50">
             <div class="card-body">
-                <form action="{{ url_for('catalog.index') }}" method="get">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                {{ search_form.text_query(class='form-control font-monospace') }}
-                            </div>
-                            <div class="col-1">
-                                <button type="submit" class="btn btn-outline-primary">
-                                    &#128270;
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                <div class="container">
+                    {{ render_catalog_search_form(search_form) }}
+                </div>
             </div>
         </div>
     </main>
