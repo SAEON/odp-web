@@ -1,11 +1,28 @@
 {% extends 'layout.html' %}
+{% from 'lib.j2' import bootswatch_spacelab_css %}
+{% from 'nav.j2' import nav_logo, nav_title, nav_menu %}
 
 {% block web_title %}
-    {% block nav_title %}
-        SAEON | Open Data Platform
-    {% endblock %}
+    SAEON ODP
 {% endblock %}
 
-{% block navbar_bg %}
-    bg-primary
+{% block header %}
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark p-2">
+        <div class="container-fluid">
+            <div class="navbar-nav justify-content-start" style="flex-basis:0; flex-grow:1">
+                {{ nav_logo() }}
+            </div>
+            <div class="d-flex flex-column align-items-center navbar-nav justify-content-center">
+                {{ nav_title(user=current_user) }}
+            </div>
+            <div class="navbar-nav justify-content-end" style="flex-basis:0; flex-grow:1">
+                {{ nav_menu(user=current_user) }}
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    {{ bootswatch_spacelab_css() }}
 {% endblock %}
