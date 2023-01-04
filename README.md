@@ -1,3 +1,3 @@
 # ODP Web
 
-Source code for SAEON Open Data Platform (ODP) public user interfaces.
+Public user interface to the SAEON Open Data Platform.
