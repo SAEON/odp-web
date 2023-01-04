@@ -1,13 +1,14 @@
 {% extends 'layout.html' %}
-{% from 'lib.j2' import bootswatch_spacelab_css %}
+{% from 'lib.j2' import bootswatch_flatly_css, jquery_js, leaflet_js, leaflet_css %}
 {% from 'nav.j2' import nav_logo, nav_title, nav_menu %}
+{% from 'foot.j2' import footer %}
 
 {% block web_title %}
     SAEON ODP
 {% endblock %}
 
 {% block header %}
-    <nav class="navbar navbar-expand-lg bg-primary navbar-dark p-2">
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark p-3">
         <div class="container-fluid">
             <div class="navbar-nav justify-content-start" style="flex-basis:0; flex-grow:1">
                 {{ nav_logo() }}
@@ -22,7 +23,18 @@
     </nav>
 {% endblock %}
 
+{% block footer %}
+    {{ footer(color='light', hr=False) }}
+{% endblock %}
+
 {% block styles %}
     {{ super() }}
-    {{ bootswatch_spacelab_css() }}
+    {{ bootswatch_flatly_css() }}
+    {{ leaflet_css() }}
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {{ jquery_js() }}
+    {{ leaflet_js() }}
 {% endblock %}

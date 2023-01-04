@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
-{% from 'macros.html' import render_catalog_search_form %}
+{% from 'catalog.j2' import search_box %}
 
 {% block main %}
     <main class="d-flex flex-grow-1 align-items-center justify-content-evenly">
-        <div class="card w-50">
-            <div class="card-body">
-                <div class="container">
-                    {{ render_catalog_search_form(search_form) }}
+        <div class="container-sm">
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col">
+                    {{ search_box(
+                        search_form,
+                        placeholder='Search the SAEON catalogue'
+                    ) }}
                 </div>
+                <div class="col-lg-3"></div>
             </div>
         </div>
     </main>
