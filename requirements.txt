@@ -39,20 +39,28 @@ markupsafe==2.1.1
     #   jinja2
     #   werkzeug
     #   wtforms
+ory-hydra-client==1.11.8
+    # via odp
 pycparser==2.21
     # via cffi
 pydantic[dotenv]==1.10.4
     # via odp
+python-dateutil==2.8.2
+    # via ory-hydra-client
 python-dotenv==0.21.0
     # via pydantic
 redis==4.4.0
     # via odp
 requests==2.28.1
     # via odp
+six==1.16.0
+    # via python-dateutil
 typing-extensions==4.4.0
     # via pydantic
 urllib3==1.26.13
-    # via requests
+    # via
+    #   ory-hydra-client
+    #   requests
 werkzeug==2.2.2
     # via
     #   flask
