@@ -13,17 +13,23 @@
                 {{ nav_logo() }}
             </div>
             <div class="d-flex flex-column align-items-center navbar-nav justify-content-center">
-                {{ nav_title(user=current_user) }}
+                {{ nav_title(current_user, request.blueprint,
+                    catalog='ODP Catalogue',
+                    data='ODP Datastores'
+                ) }}
             </div>
             <div class="navbar-nav justify-content-end flex-grow-evenly">
-                {{ nav_menu(user=current_user) }}
+                {{ nav_menu(current_user, request.blueprint,
+                    catalog='ODP Catalogue',
+                    data='ODP Datastores'
+                ) }}
             </div>
         </div>
     </nav>
 {% endblock %}
 
 {% block footer %}
-    {{ footer(color='light', hr=False) }}
+    {{ footer(color='light', hr=false) }}
 {% endblock %}
 
 {% block styles %}
