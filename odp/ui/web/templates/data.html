@@ -33,11 +33,11 @@
     {% endif %}
 {% endblock %}
 
-{% macro data_card(logo) %}
+{% macro data_card(image) %}
     <div class="card mt-4" style="max-width: 500px">
         <div class="row">
             <div class="col-4">
-                <img src="{{ url_for('static', filename=logo) }}"
+                <img src="{{ url_for('static', filename='images/' + image) }}"
                      class="rounded-start m-3" height="140" width="140">
             </div>
             <div class="col">
