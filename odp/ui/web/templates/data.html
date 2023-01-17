@@ -6,21 +6,47 @@
 
 {% block content %}
     {% if current_user.is_authenticated %}
-        <div class="d-flex justify-content-evenly">
-            <div class="card">
-                <a href="{{ thredds_url }}">
-                    <img src="{{ url_for('static', filename='thredds_tds-400x400.png') }}" class="card-img-top">
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title">THREDDS Data Server</h5>
-                    <p class="card-text">Browse SAEON's THREDDS catalog.</p>
-                    <div class="d-grid">
-                        <a href="{{ thredds_url }}" class="btn btn-primary">Go</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% call data_card('thredds_tds-150x150.png') %}
+            <h5 class="card-title">THREDDS Data Server</h5>
+            <p class="card-text">
+                Browse SAEON's
+                <a href="{{ thredds_url }}" class="card-link">THREDDS catalog</a>.
+            </p>
+        {% endcall %}
+
+        <h5 class="mt-5 mb-3">
+            Script Access
+        </h5>
+        <p>
+            Get an <a href="{{ url_for('.token') }}" class="card-link">access token</a>
+            for use in scripts.
+        </p>
+        <p>
+            Include the following HTTP header in requests to the above servers:
+        </p>
+        <p class="form-control font-monospace" style="max-width: 500px">
+            Authorization: Bearer <i>your-access-token</i>
+        </p>
+
     {% else %}
         <p>Please <a href="{{ url_for('hydra.login') }}">log in</a> to access SAEON's data servers.</p>
     {% endif %}
 {% endblock %}
+
+{% macro data_card(logo) %}
+    <div class="card mt-4" style="max-width: 500px">
+        <div class="row">
+            <div class="col-4">
+                <img src="{{ url_for('static', filename=logo) }}"
+                     class="rounded-start m-3" height="140" width="140">
+            </div>
+            <div class="col">
+                <div class="card-body">
+                    {% if caller %}
+                        {{ caller() }}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
