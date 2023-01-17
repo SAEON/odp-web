@@ -42,4 +42,5 @@
     {{ super() }}
     {{ jquery_js() }}
     {{ leaflet_js() }}
+    <script src="{{ url_for('static', filename='scripts/maps.js') }}"></script>
 {% endblock %}
