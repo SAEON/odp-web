@@ -3,7 +3,7 @@
 {% from 'page.j2' import nav_logo, nav_title, nav_menu, footer %}
 
 {% block web_title %}
-    SAEON ODP
+    SAEON Open Data Platform
 {% endblock %}
 
 {% block header %}
@@ -42,5 +42,5 @@
     {{ super() }}
     {{ jquery_js() }}
     {{ leaflet_js() }}
-    <script src="{{ url_for('static', filename='scripts/maps.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/catalog.js') }}"></script>
 {% endblock %}
