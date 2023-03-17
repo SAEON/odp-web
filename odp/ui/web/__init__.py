@@ -16,6 +16,7 @@ def create_app():
     app = Flask(__name__)
     app.config.update(
         CATALOG_ID=ODPCatalog.SAEON,
+        CATALOG_FACETS=[],
         UI_CLIENT_ID=config.ODP.WEB.UI_CLIENT_ID,
         UI_CLIENT_SECRET=config.ODP.WEB.UI_CLIENT_SECRET,
         UI_CLIENT_SCOPE=[
