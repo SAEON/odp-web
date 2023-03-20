@@ -9,7 +9,7 @@ bp = Blueprint('proxy', __name__)
 hydra_admin_api = HydraAdminAPI(config.HYDRA.ADMIN.URL)
 
 
-@bp.route('/token', methods=('POST',))
+@bp.route('/token')
 def authenticate_access_token():
     """Implements the Ory Oathkeeper bearer_token authenticator."""
     try:
@@ -27,7 +27,7 @@ def authenticate_access_token():
     return dict(subject=token.sub)
 
 
-@bp.route('/session', methods=('POST',))
+@bp.route('/session')
 def authenticate_session_cookie():
     """Implements the Ory Oathkeeper cookie_session authenticator."""
     if not current_user.is_authenticated:
