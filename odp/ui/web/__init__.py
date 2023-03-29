@@ -23,13 +23,13 @@ def create_app():
         UI_CLIENT_SCOPE=[
             HydraScope.OPENID,
             HydraScope.OFFLINE_ACCESS,
-            ODPScope.CATALOG_READ,
             ODPScope.TOKEN_READ,
         ],
         CI_CLIENT_ID=config.ODP.WEB.CI_CLIENT_ID,
         CI_CLIENT_SECRET=config.ODP.WEB.CI_CLIENT_SECRET,
         CI_CLIENT_SCOPE=[
             ODPScope.CATALOG_READ,
+            ODPScope.CATALOG_SEARCH,
         ],
         SECRET_KEY=config.ODP.WEB.FLASK_SECRET,
     )
