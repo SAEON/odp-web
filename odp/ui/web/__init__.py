@@ -17,7 +17,17 @@ def create_app():
     app.config.update(
         CATALOG_ID=ODPCatalog.SAEON,
         CATALOG_FACETS=[],
-        CATALOG_TERMS_OF_USE='',
+        CATALOG_TERMS_OF_USE='''
+            These data are made available with the express understanding that any such use
+            will properly acknowledge the originator(s) and publisher and cite the associated
+            Digital Object Identifiers (DOIs). Anyone wishing to use these data should properly
+            cite and attribute the data providers listed as authors in the metadata provided
+            with each dataset. It is expected that all the conditions of the data license will
+            be strictly honoured. Use of any material herein should be properly cited using the
+            dataset's DOIs. SAEON cannot be held responsible for the quality of data provided
+            by third parties, and while we take reasonable care in referencing these datasets,
+            the content of both metadata and data is under control of the third-party provider.
+        ''',
         UI_CLIENT_ID=config.ODP.WEB.UI_CLIENT_ID,
         UI_CLIENT_SECRET=config.ODP.WEB.UI_CLIENT_SECRET,
         UI_CLIENT_SCOPE=[
