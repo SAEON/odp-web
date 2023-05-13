@@ -16,7 +16,9 @@ def create_app():
     app = Flask(__name__)
     app.config.update(
         CATALOG_ID=ODPCatalog.SAEON,
-        CATALOG_FACETS=[],
+        CATALOG_FACETS=[
+            'License',
+        ],
         CATALOG_TERMS_OF_USE='''
             These data are made available with the express understanding that any such use
             will properly acknowledge the originator(s) and publisher and cite the associated
