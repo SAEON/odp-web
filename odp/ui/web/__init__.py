@@ -33,6 +33,7 @@ def create_app():
         UI_CLIENT_SCOPE=[
             HydraScope.OPENID,
             HydraScope.OFFLINE_ACCESS,
+            ODPScope.RECORD_READ,
             ODPScope.TOKEN_READ,
         ],
         CI_CLIENT_ID=config.ODP.WEB.CI_CLIENT_ID,
