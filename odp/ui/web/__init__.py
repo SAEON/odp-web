@@ -17,6 +17,8 @@ def create_app():
     app.config.update(
         CATALOG_ID=ODPCatalog.SAEON,
         CATALOG_FACETS=[
+            'Project',
+            'Collection',
             'License',
         ],
         CATALOG_TERMS_OF_USE='''
