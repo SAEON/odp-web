@@ -45,6 +45,7 @@ def create_app():
         CI_CLIENT_SCOPE=[
             ODPScope.CATALOG_READ,
             ODPScope.CATALOG_SEARCH,
+            ODPScope.VOCABULARY_READ,
         ],
         SECRET_KEY=config.ODP.WEB.FLASK_SECRET,
     )
