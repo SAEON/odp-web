@@ -14,14 +14,16 @@
             </div>
             <div class="d-flex flex-column align-items-center navbar-nav justify-content-center">
                 {{ nav_title(current_user, request.blueprint,
-                    catalog='ODP Catalogue',
-                    data='ODP Datastores'
+                    catalog='Catalogue',
+                    data='Data access',
+                    packages='Data upload'
                 ) }}
             </div>
             <div class="navbar-nav justify-content-end flex-grow-evenly">
                 {{ nav_menu(current_user, request.blueprint,
-                    catalog='ODP Catalogue',
-                    data='ODP Datastores'
+                    catalog='Catalogue',
+                    data='Data access',
+                    packages='Data upload'
                 ) }}
             </div>
         </div>
@@ -44,5 +46,6 @@
     {{ leaflet_js() }}
     <script src="{{ url_for('static', filename='scripts/catalog.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/controls.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/packages.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/leaflet-providers.js') }}"></script>
 {% endblock %}

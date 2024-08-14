@@ -37,6 +37,11 @@ def create_app():
         UI_CLIENT_SCOPE=[
             HydraScope.OPENID,
             HydraScope.OFFLINE_ACCESS,
+            ODPScope.KEYWORD_READ,
+            ODPScope.PACKAGE_READ,
+            ODPScope.PACKAGE_WRITE,
+            ODPScope.PACKAGE_DOI,
+            ODPScope.PROVIDER_READ,
             ODPScope.RECORD_READ,
             ODPScope.TOKEN_READ,
         ],
