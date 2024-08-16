@@ -3,7 +3,7 @@ from pathlib import Path
 from flask import Flask
 
 from odp.config import config
-from odp.const import ODPCatalog, ODPScope
+from odp.const import ODPArchive, ODPCatalog, ODPScope
 from odp.const.hydra import HydraScope
 from odp.ui import base
 from odp.ui.web import views
@@ -15,6 +15,7 @@ def create_app():
     """
     app = Flask(__name__)
     app.config.update(
+        ARCHIVE_ID=ODPArchive.ODP_UPLOAD,
         CATALOG_ID=ODPCatalog.SAEON,
         CATALOG_FACETS=[
             'Product',
@@ -43,11 +44,13 @@ def create_app():
             ODPScope.PACKAGE_DOI,
             ODPScope.PROVIDER_READ,
             ODPScope.RECORD_READ,
+            ODPScope.RESOURCE_WRITE,
             ODPScope.TOKEN_READ,
         ],
         CI_CLIENT_ID=config.ODP.WEB.CI_CLIENT_ID,
         CI_CLIENT_SECRET=config.ODP.WEB.CI_CLIENT_SECRET,
         CI_CLIENT_SCOPE=[
+            ODPScope.ARCHIVE_READ,
             ODPScope.CATALOG_READ,
             ODPScope.CATALOG_SEARCH,
             ODPScope.VOCABULARY_READ,
