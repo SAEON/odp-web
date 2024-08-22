@@ -15,7 +15,7 @@ def create_app():
     """
     app = Flask(__name__)
     app.config.update(
-        ARCHIVE_ID=ODPArchive.ODP_UPLOAD,
+        ARCHIVE_ID=ODPArchive.SAEON_REPOSITORY,
         CATALOG_ID=ODPCatalog.SAEON,
         CATALOG_FACETS=[
             'Product',
