@@ -38,6 +38,7 @@ def create_app():
         UI_CLIENT_SCOPE=[
             HydraScope.OPENID,
             HydraScope.OFFLINE_ACCESS,
+            ODPScope.ARCHIVE_SAEON_REPOSITORY,
             ODPScope.KEYWORD_READ,
             ODPScope.PACKAGE_READ,
             ODPScope.PACKAGE_WRITE,
@@ -50,7 +51,6 @@ def create_app():
         CI_CLIENT_ID=config.ODP.WEB.CI_CLIENT_ID,
         CI_CLIENT_SECRET=config.ODP.WEB.CI_CLIENT_SECRET,
         CI_CLIENT_SCOPE=[
-            ODPScope.ARCHIVE_READ,
             ODPScope.CATALOG_READ,
             ODPScope.CATALOG_SEARCH,
             ODPScope.VOCABULARY_READ,
