@@ -31,7 +31,10 @@
 {% endblock %}
 
 {% block footer %}
-    {{ footer(color='light', hr=false) }}
+    {{ footer(
+        color='light', hr=False,
+        repos=['odp-server', 'odp-core', 'odp-ui', 'odp-web']
+    ) }}
 {% endblock %}
 
 {% block styles %}
