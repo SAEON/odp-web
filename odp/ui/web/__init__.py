@@ -3,7 +3,7 @@ from pathlib import Path
 from flask import Flask
 
 from odp.config import config
-from odp.const import ODPArchive, ODPCatalog, ODPScope
+from odp.const import ODPCatalog, ODPScope
 from odp.const.hydra import HydraScope
 from odp.ui import base
 from odp.ui.web import views
@@ -15,7 +15,7 @@ def create_app():
     """
     app = Flask(__name__)
     app.config.update(
-        ARCHIVE_ID=ODPArchive.SAEON_REPOSITORY,
+        ARCHIVE_ID=config.ODP.WEB.ARCHIVE_ID,
         CATALOG_ID=ODPCatalog.SAEON,
         CATALOG_FACETS=[
             'Product',
