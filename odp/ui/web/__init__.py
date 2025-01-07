@@ -40,6 +40,7 @@ def create_app():
             HydraScope.OFFLINE_ACCESS,
             ODPScope.ARCHIVE_SAEON_REPOSITORY,
             ODPScope.KEYWORD_READ,
+            ODPScope.KEYWORD_SUGGEST,
             ODPScope.PACKAGE_READ,
             ODPScope.PACKAGE_WRITE,
             ODPScope.PACKAGE_DOI,
@@ -53,6 +54,7 @@ def create_app():
         CI_CLIENT_SCOPE=[
             ODPScope.CATALOG_READ,
             ODPScope.CATALOG_SEARCH,
+            ODPScope.KEYWORD_READ_ALL,
             ODPScope.VOCABULARY_READ,
         ],
         SECRET_KEY=config.ODP.WEB.FLASK_SECRET,
