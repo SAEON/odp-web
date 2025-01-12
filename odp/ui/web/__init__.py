@@ -44,6 +44,7 @@ def create_app():
             ODPScope.PACKAGE_READ,
             ODPScope.PACKAGE_WRITE,
             ODPScope.PACKAGE_DOI,
+            ODPScope.PACKAGE_SDG,
             ODPScope.PROVIDER_READ,
             ODPScope.RECORD_READ,
             ODPScope.RESOURCE_WRITE,
