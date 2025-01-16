@@ -41,6 +41,7 @@
     {{ super() }}
     {{ bootswatch_spacelab_css() }}
     {{ leaflet_css() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/remixicon/remixicon.css') }}">
 {% endblock %}
 
 {% block scripts %}
