@@ -48,7 +48,7 @@ def create_app():
             ODPScope.PACKAGE_SDG,
             ODPScope.PROVIDER_READ,
             ODPScope.RECORD_READ,
-            ODPScope.RESOURCE_WRITE,
+            ODPScope.RESOURCE_READ,
             ODPScope.TOKEN_READ,
         ],
         CI_CLIENT_ID=config.ODP.WEB.CI_CLIENT_ID,
