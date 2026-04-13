@@ -39,7 +39,6 @@ def create_app():
             HydraScope.OFFLINE_ACCESS,
             ODPScope.RECORD_READ,
             ODPScope.TOKEN_READ,
-            # ODPScope.CATALOG_READ,
             ODPScope.SUBMISSION_READ,
             ODPScope.SUBMISSION_WRITE,
             ODPScope.SUBMISSION_DELETE,
