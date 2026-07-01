@@ -52,6 +52,8 @@ def create_app():
             ODPScope.VOCABULARY_READ,
         ],
         SECRET_KEY=config.ODP.WEB.FLASK_SECRET,
+        WTF_CSRF_TIME_LIMIT=None,
+        MAX_CONTENT_LENGTH=1024 * 1024 * 1024,
     )
 
     base.init_app(app, user_api=True, client_api=True, template_dir=Path(__file__).parent / 'templates')
