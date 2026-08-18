@@ -4,7 +4,6 @@ from flask import Flask
 
 from odp.config import config
 from odp.const import ODPCatalog, ODPScope
-from odp.const.hydra import HydraScope
 from odp.ui import base
 from odp.ui.web import views
 
@@ -35,8 +34,8 @@ def create_app():
         UI_CLIENT_ID=config.ODP.WEB.UI_CLIENT_ID,
         UI_CLIENT_SECRET=config.ODP.WEB.UI_CLIENT_SECRET,
         UI_CLIENT_SCOPE=[
-            HydraScope.OPENID,
-            HydraScope.OFFLINE_ACCESS,
+            'openid',
+            'offline_access',
             ODPScope.RECORD_READ,
             ODPScope.TOKEN_READ,
         ],

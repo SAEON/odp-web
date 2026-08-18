@@ -2,16 +2,16 @@ from flask import Blueprint, abort, redirect, request, url_for
 from flask_login import current_user
 
 from odp.config import config
-from odp.lib.hydra import HydraAdminAPI, OAuth2TokenIntrospection
+from odp.lib.keycloak import JWTVerifier
 
 bp = Blueprint('proxy', __name__)
 
-hydra_admin_api = HydraAdminAPI(config.HYDRA.ADMIN.URL)
+jwt_verifier = JWTVerifier(f"{config.AUTH.URL}/protocol/openid-connect/certs")
 
 
 @bp.route('/token')
 def authenticate_access_token():
-    """Implements the Ory Oathkeeper bearer_token authenticator."""
+    """Implements token authentication."""
     try:
         auth_header = request.headers['Authorization']
         scheme, access_token = auth_header.split()
@@ -20,7 +20,7 @@ def authenticate_access_token():
     except (KeyError, ValueError):
         abort(401)
 
-    token: OAuth2TokenIntrospection = hydra_admin_api.introspect_token(access_token)
+    token = jwt_verifier.verify_token(access_token)
     if not token.active:
         abort(403)
 
@@ -29,7 +29,7 @@ def authenticate_access_token():
 
 @bp.route('/session')
 def authenticate_session_cookie():
-    """Implements the Ory Oathkeeper cookie_session authenticator."""
+    """Implements session cookie authentication."""
     if not current_user.is_authenticated:
         abort(401)
 
@@ -38,5 +38,5 @@ def authenticate_session_cookie():
 
 @bp.route('/unauthorized')
 def unauthorized_user():
-    """Implements the Ory Oathkeeper redirect handler for unauthorized errors."""
-    return redirect(url_for('hydra.login', return_to=request.args.get('return_to')))
+    """Implements redirect handler for unauthorized errors."""
+    return redirect(url_for('auth.login', return_to=request.args.get('return_to')))
