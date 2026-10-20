@@ -15,13 +15,15 @@
             <div class="d-flex flex-column align-items-center navbar-nav justify-content-center">
                 {{ nav_title(current_user, request.blueprint,
                     catalog='ODP Catalogue',
-                    data='ODP Datastores'
+                    data='ODP Datastores',
+                    submissions='Data Submissions'
                 ) }}
             </div>
             <div class="navbar-nav justify-content-end flex-grow-evenly">
                 {{ nav_menu(current_user, request.blueprint,
                     catalog='ODP Catalogue',
-                    data='ODP Datastores'
+                    data='ODP Datastores',
+                    submissions='Data Submissions'
                 ) }}
             </div>
         </div>
