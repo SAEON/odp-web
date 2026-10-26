@@ -1,17 +1,14 @@
 from flask import Blueprint, abort, redirect, request, url_for
 from flask_login import current_user
 
-from odp.config import config
-from odp.lib.hydra import HydraAdminAPI, OAuth2TokenIntrospection
+from odp.lib.auth import decode_and_verify_token
 
 bp = Blueprint('proxy', __name__)
-
-hydra_admin_api = HydraAdminAPI(config.HYDRA.ADMIN.URL)
 
 
 @bp.route('/token')
 def authenticate_access_token():
-    """Implements the Ory Oathkeeper bearer_token authenticator."""
+    """Implements the Ory Oathkeeper bearer_token authenticator using Keycloak JWKS."""
     try:
         auth_header = request.headers['Authorization']
         scheme, access_token = auth_header.split()
@@ -20,11 +17,12 @@ def authenticate_access_token():
     except (KeyError, ValueError):
         abort(401)
 
-    token: OAuth2TokenIntrospection = hydra_admin_api.introspect_token(access_token)
-    if not token.active:
+    try:
+        claims = decode_and_verify_token(access_token)
+    except Exception:
         abort(403)
 
-    return dict(subject=token.sub)
+    return dict(subject=claims.get('sub'))
 
 
 @bp.route('/session')
